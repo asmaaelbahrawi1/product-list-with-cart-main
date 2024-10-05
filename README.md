@@ -12,14 +12,14 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
 
 
 ### Screenshot
-![image](https://github.com/user-attachments/assets/08046c43-f0a4-453f-be8b-e734a938781c)
-![image](https://github.com/user-attachments/assets/4cb64f43-1ea0-4fd6-afdc-f684c90dec03)
-![image](https://github.com/user-attachments/assets/5e10f910-95a8-4fad-a7c3-6446d4e5b83b)
+![image](https://github.com/user-attachments/assets/6adc6eb1-63dd-4e8c-b2fe-a15dc72d2eca)
+![image](https://github.com/user-attachments/assets/b76900cb-610b-41e8-afbd-0fc0063ca487)
+![image](https://github.com/user-attachments/assets/23c1a0c2-cdea-43e5-901a-42669ef5b2f9)
 
-![image](https://github.com/user-attachments/assets/c061fd80-9b4d-49fa-a29a-e1ca4c7bb382)
-![image](https://github.com/user-attachments/assets/018bfd9e-57c7-4d87-ba5e-492ca2476412)
-![image](https://github.com/user-attachments/assets/7ccaa693-7f0a-441c-a985-0a07c71f9efb)
 
+![image](https://github.com/user-attachments/assets/4ce60d71-5d04-4523-a2ee-82b71d78de9d)
+![image](https://github.com/user-attachments/assets/4c5516cc-b198-4e9f-bbb1-e4e551deccee)
+![image](https://github.com/user-attachments/assets/22d5dd4b-87aa-4f55-98f8-6d606f23c853)
 
 
 ### Links
