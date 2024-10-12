@@ -22,7 +22,12 @@
     .all-card{
         width: 100%;
     }
-
+    .modal{
+        width: 100%;
+    }
+    .confirmation-item-details{
+        gap: .75rem;
+    }
 }
 
 @media (min-width:767px) and (max-width:1024px){
