@@ -181,48 +181,48 @@ function removeFromCart(name) {
 }
 
 //   confirm order button
-document.getElementById('confirm-order-btn').addEventListener('click', () => {
-  let confirmationItems = document.getElementById('confirmation-items');
-  let orderTotal = document.getElementById('order-total');
-  let confirmationModal = document.getElementById('confirmation-modal');
+// document.getElementById('confirm-order-btn').addEventListener('click', () => {
+//   let confirmationItems = document.getElementById('confirmation-items');
+//   let orderTotal = document.getElementById('order-total');
+//   let confirmationModal = document.getElementById('confirmation-modal');
 
-  confirmationItems.innerHTML = ''; 
-  let totalPrice = 0;
+//   confirmationItems.innerHTML = ''; 
+//   let totalPrice = 0;
 
-  // loop on cart and display the products in the confirmation 
-  for (let i = 0; i < cart.length; i++) {
-    let item = cart[i]; 
-    let itemTotal = item.price * item.quantity; 
-    totalPrice += itemTotal; 
+//   // loop on cart and display the products in the confirmation 
+//   for (let i = 0; i < cart.length; i++) {
+//     let item = cart[i]; 
+//     let itemTotal = item.price * item.quantity; 
+//     totalPrice += itemTotal; 
 
-    // creat div foe each item 
-    let confirmationItemDiv = document.createElement('div');
-    confirmationItemDiv.classList.add('confirmation-item');
-    confirmationItemDiv.innerHTML = `
-      <div class="confirmation-item-details">
-        <img src="${item.image}" alt="${item.name}" class="confirmation-item-img" />
-        <div class="confirmation-item-info">
-          <p class="product-name">${item.name}</p>
-          <div class="confirmation-price">
-              <p class="quan">${item.quantity}x</p>
-              <span class="price-one">@ $${item.price}</span>
-          </div>
-        </div>
-        <div class="price-two-container"><p class="price-two">$${(item.price * item.quantity).toFixed(2)} </p></div>
-      </div>
-    `;
+//     // creat div foe each item 
+//     let confirmationItemDiv = document.createElement('div');
+//     confirmationItemDiv.classList.add('confirmation-item');
+//     confirmationItemDiv.innerHTML = `
+//       <div class="confirmation-item-details">
+//         <img src="${item.image}" alt="${item.name}" class="confirmation-item-img" />
+//         <div class="confirmation-item-info">
+//           <p class="product-name">${item.name}</p>
+//           <div class="confirmation-price">
+//               <p class="quan">${item.quantity}x</p>
+//               <span class="price-one">@ $${item.price}</span>
+//           </div>
+//         </div>
+//         <div class="price-two-container"><p class="price-two">$${(item.price * item.quantity).toFixed(2)} </p></div>
+//       </div>
+//     `;
 
-    confirmationItems.appendChild(confirmationItemDiv); 
-}
+//     confirmationItems.appendChild(confirmationItemDiv); 
+// }
 
   
 
-  // Update the total price in the modal
-  orderTotal.textContent = `$${totalPrice.toFixed(2)}`;
+//   // Update the total price in the modal
+//   orderTotal.textContent = `$${totalPrice.toFixed(2)}`;
 
-  // Show the confirmation modal
-  confirmationModal.style.display = 'block';
-});
+//   // Show the confirmation modal
+//   confirmationModal.style.display = 'block';
+// });
 
 // Event listener for Start New Order button
 document.getElementById('new-order-btn').addEventListener('click', () => {
@@ -231,6 +231,7 @@ document.getElementById('new-order-btn').addEventListener('click', () => {
   
   // hide the confirmation modal and show the cart section again
   let confirmationModal = document.getElementById('confirmation-modal');
+
   confirmationModal.style.display = 'none'; // hide the modal
   document.getElementById('cart-section').style.display = 'block'; // Show the cart section again
 
@@ -272,6 +273,68 @@ function removeFromCart(name) {
   productDiv.classList.remove('selected'); // Remove the selected class when the quantity reaches 0
 }
 
+
+
+// /////////////////
+// Show the confirmation modal when the user clicks "Confirm Order"
+  document.getElementById('confirm-order-btn').addEventListener('click', () => {
+  document.getElementById('confirmation-modal').style.display = 'block';
+  document.getElementById('confirmation-overlay').style.display = 'block';
+  
+  // Populate the modal with order details (you already have this logic)
+  let confirmationItems = document.getElementById('confirmation-items');
+  let orderTotal = document.getElementById('order-total');
+  let totalPrice = 0;
+
+  confirmationItems.innerHTML = ''; // Clear previous items
+
+  //   // loop on cart and display the products in the confirmation 
+  for (let i = 0; i < cart.length; i++) {
+    let item = cart[i]; 
+    let itemTotal = item.price * item.quantity; 
+    totalPrice += itemTotal; 
+
+    // creat div foe each item 
+    let confirmationItemDiv = document.createElement('div');
+    confirmationItemDiv.classList.add('confirmation-item');
+    confirmationItemDiv.innerHTML = `
+      <div class="confirmation-item-details">
+        <img src="${item.image}" alt="${item.name}" class="confirmation-item-img" />
+        <div class="confirmation-item-info">
+          <p class="product-name">${item.name}</p>
+          <div class="confirmation-price">
+              <p class="quan">${item.quantity}x</p>
+              <span class="price-one">@ $${item.price}</span>
+          </div>
+        </div>
+        <div class="price-two-container"><p class="price-two">$${(item.price * item.quantity).toFixed(2)} </p></div>
+      </div>
+    `;
+
+    confirmationItems.appendChild(confirmationItemDiv); 
+}
+  // Update the total price in the modal
+  orderTotal.textContent = `$${totalPrice.toFixed(2)}`;
+});
+
+// Close the modal when clicking outside (on the overlay)
+document.getElementById('confirmation-overlay').addEventListener('click', () => {
+  document.getElementById('confirmation-modal').style.display = 'none';
+  document.getElementById('confirmation-overlay').style.display = 'none';
+});
+
+// Close the modal and reset cart when clicking "Start New Order"
+document.getElementById('new-order-btn').addEventListener('click', () => {
+  cart = [];  // Reset the cart
+  updateCart();  // Call your function to update the cart display
+
+  // Hide the modal and overlay
+  document.getElementById('confirmation-modal').style.display = 'none';
+  document.getElementById('confirmation-overlay').style.display = 'none';
+  
+  // Reset the product display (if needed)
+  // Add code here to reset buttons and product selection, if applicable.
+});
 
 
 
